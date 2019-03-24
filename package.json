@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "webpack插件 用于将指定目录下的图片，转换为webp格式和一张压缩后的图片",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini.git"
@@ -20,6 +22,7 @@
     "@types/webpack": "^4.4.26",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.3",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.3.4000",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
