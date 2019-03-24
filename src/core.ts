@@ -1,10 +1,9 @@
-// import * as sharp from 'sharp'
+
+import fs from 'fs'
+import path from 'path'
 import { loadPathDirType, makeImage, makeAdapter, fileInfoInterface, optionsInterface, compilation, pathType } from './interface'
 import utils from './utils'
 import {successLog, errorLog} from './logger'
-
-const fs = require('fs')
-const path = require('path')
 const sharp = require('sharp')
 const { interpolateName } = require('loader-utils')
 

@@ -2,7 +2,7 @@
   "name": "webpack-plugin-image-transform-webp-and-mini",
   "version": "1.0.0",
   "description": "webpack插件 用于将指定目录下的图片，转换为webp格式和一张压缩后的图片",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "build": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
   },

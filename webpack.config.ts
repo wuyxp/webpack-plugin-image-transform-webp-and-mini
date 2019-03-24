@@ -13,7 +13,9 @@ const config:webpack.Configuration = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'webpackPluginImageTransformWebpAndMini',
+    libraryTarget: "umd"
   },
   resolve: {
     extensions: ['.js', '.ts']
