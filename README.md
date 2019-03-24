@@ -16,7 +16,10 @@ webpack插件 用于将指定目录下的图片，转换为webp格式和一张�
 ## 使用
 在webpack中引入中使用
 ```
-import webpackPluginImageTransformWebpAndMini from 'webpackPluginImageTransformWebpAndMini'
+npm install webpack-plugin-image-transform-webp-and-mini --save-dev
+
+
+const webpackPluginImageTransformWebpAndMini = require('webpackPluginImageTransformWebpAndMini')
 ...
 {
   ...
@@ -30,25 +33,26 @@ import webpackPluginImageTransformWebpAndMini from 'webpackPluginImageTransformW
       miniOptions: {
         src: src => src.replace(/\.(\w+?)(\?[\s\S]+)?$/,'-min.$1$2'),
         resize: {
-          width: 100,
-          height: auto
+          width: 100
         }
       },
-      path: {
+      paths: {
         dir: path.resolve(__dirname, './src/assets'),
         include: ['bg']
       }
     })
   ]
 }
+
 ```
 
 ## 参数说明
+```
 - name 必填项，主要和图片的file-loader或者url-loader采用的规则一样
 - paths 必填项，会根据用户所填的路径进行转换（可递归）
   - 字符串：只是将此路径下的图片进行转换
   - 对象：
-    - {
+    {
       dir: 路径
       include: 字符串数组，只是在该路径下指定的文件进行转换
       exclude: 字符串数组，只是在该路径下除去指定的文件进行转换
@@ -66,4 +70,4 @@ import webpackPluginImageTransformWebpAndMini from 'webpackPluginImageTransformW
       height: xxx
     }
   }
-
+```

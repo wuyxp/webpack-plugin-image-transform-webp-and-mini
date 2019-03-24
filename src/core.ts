@@ -82,8 +82,8 @@ const makeWebp: makeImage = async (compilation, fileInfo, fileContent, options:a
       if(options.logger){
         const oldSize = fileContent.length
         const newSize = g.length
-        const change = oldSize - newSize
-        successLog(`${change > 0 ? '-' : '+'} ${loaderContext.resourcePath}图片更改webp。${change > 0 ? '减少了' : '增加了'}  ${change}`)
+        const change = (oldSize - newSize) / 1000
+        successLog(`\n${change > 0 ? '-' : '+'} ${loaderContext.resourcePath}图片更改webp。${change > 0 ? '减少了' : '增加了'}  ${change} kib`)
       }
       compilation.assets[src] = {
         source: function() {
@@ -109,18 +109,18 @@ const makeMini: makeImage = async (compilation, fileInfo, fileContent, options:a
   const loaderContext = {
     resourcePath: fileInfo.dir + '/' + fileInfo.base
   }
-  const str = interpolateName(loaderContext, this.placeholder, {
+  const str = interpolateName(loaderContext, options.name, {
     content: fileContent
   });
   if(options.miniOptions && utils.isFunction(options.miniOptions.src)){
-    const src = options.miniOptions(str)
+    const src = options.miniOptions.src(str)
     try{
       const g = await sharp(fileContent).resize(options.resize).sharpen().toBuffer()
       if(options.logger){
         const oldSize = fileContent.length
         const newSize = g.length
-        const change = oldSize - newSize
-        successLog(`${change > 0 ? '-' : '+'} ${loaderContext.resourcePath}图片压缩mini图片。${change > 0 ? '减少了' : '增加了'}  ${change}`)
+        const change = (oldSize - newSize) / 1000
+        successLog(`\n${change > 0 ? '-' : '+'} ${loaderContext.resourcePath}图片压缩mini图片。${change > 0 ? '减少了' : '增加了'}  ${change} kib`)
       }
       compilation.assets[src] = {
         source: function() {

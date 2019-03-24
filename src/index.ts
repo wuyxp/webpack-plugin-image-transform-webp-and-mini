@@ -9,7 +9,6 @@ class webpackPluginImageTransformWebpAndMini {
   constructor(options: optionsInterface){
     // 最后需要得到一个paths的文件目录
     const defaultOptions: optionsInterface = {
-      name: '',
       logger: false,
       webpOptions: {
         src: src => src.replace(/(?:\.\w+)(\?|$)/, '.webp$1')
@@ -19,9 +18,6 @@ class webpackPluginImageTransformWebpAndMini {
         resize: {
           width: 100
         }
-      },
-      paths: {
-        dir: path.resolve(__dirname, './src/assets')
       }
     }
     this.options = Object.assign({}, defaultOptions, options)

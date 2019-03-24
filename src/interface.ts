@@ -7,7 +7,7 @@ export interface optionsInterface {
   /**
    * 图片路径名称，要和url-loader或者file-loader的name规则保持一致
    */
-  name: string 
+  name?: string 
   /**
    * 是否展示打印日志
    */
@@ -34,7 +34,7 @@ export interface optionsInterface {
    * @param Array 可以设置一组需要处理的图片路径
    * @param Object {dir, include, exclude} 可以配置为对象，dir为路径名称，include代表需要引入的文件名称，exclude代表需要排除的名称
    */
-  paths: pathType | pathType[] | string
+  paths?: pathType | pathType[] | string
 }
 
 export interface fileInfoInterface {

@@ -11,18 +11,22 @@ fs.readdirSync('node_modules')
 const config:webpack.Configuration = {
   mode: "production",
   entry: "./src/index.ts",
+  target: "node",
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     library: 'webpackPluginImageTransformWebpAndMini',
-    libraryTarget: "umd"
+    libraryExport: "default",
+    libraryTarget: "commonjs2"
   },
   resolve: {
     extensions: ['.js', '.ts']
   },
   node: {
     fs: "empty",
-    child_process: "empty"
+    child_process: "empty",
+    __filename: false,
+    __dirname: false
   },
   externals: nodeModules,
   module: {

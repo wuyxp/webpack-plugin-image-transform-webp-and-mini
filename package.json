@@ -10,12 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["webpack", "plugin", "webp", "mini", "image", "transfrom"],
+  "author": "956826374@qq.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini/issues"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "homepage": "https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini#readme",
   "devDependencies": {
     "@types/node": "^11.11.6",
