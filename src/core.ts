@@ -115,7 +115,7 @@ const makeMini: makeImage = async (compilation, fileInfo, fileContent, options:a
   if(options.miniOptions && utils.isFunction(options.miniOptions.src)){
     const src = options.miniOptions.src(str)
     try{
-      const g = await sharp(fileContent).resize(options.resize).sharpen().toBuffer()
+      const g = await sharp(fileContent).resize(options.miniOptions.resize.width, options.miniOptions.resize.height).sharpen().toBuffer()
       if(options.logger){
         const oldSize = fileContent.length
         const newSize = g.length
@@ -131,6 +131,7 @@ const makeMini: makeImage = async (compilation, fileInfo, fileContent, options:a
         }
       };
     } catch (e) {
+      console.log(e)
       errorLog(`${loaderContext.resourcePath}压缩mini图片失败`)
     }
   } 
