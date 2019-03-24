@@ -1,0 +1,31 @@
+{
+  "name": "webpack-plugin-image-transform-webp-and-mini",
+  "version": "1.0.0",
+  "description": "webpack插件 用于将指定目录下的图片，转换为webp格式和一张压缩后的图片",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini/issues"
+  },
+  "homepage": "https://github.com/wuyxp/webpack-plugin-image-transform-webp-and-mini#readme",
+  "devDependencies": {
+    "@types/node": "^11.11.6",
+    "@types/webpack": "^4.4.26",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.4000",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.2.3",
+    "sharp": "^0.22.0"
+  }
+}
