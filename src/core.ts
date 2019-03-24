@@ -1,11 +1,13 @@
+// import * as sharp from 'sharp'
+import { loadPathDirType, makeImage, makeAdapter, fileInfoInterface, optionsInterface, compilation, pathType } from './interface'
+import utils from './utils'
+import {successLog, errorLog} from './logger'
+
 const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
 const { interpolateName } = require('loader-utils')
 
-import { loadPathDirType, makeImage, makeAdapter, fileInfoInterface, optionsInterface, compilation, pathType } from './interface'
-import utils from './utils'
-import {successLog, errorLog} from './logger'
 
 /**
  * 递归所有文件将所有的符合条件的文件进行调用
@@ -76,7 +78,6 @@ const makeWebp: makeImage = async (compilation, fileInfo, fileContent, options:a
   });
   if(options.webpOptions && utils.isFunction(options.webpOptions.src)){
     const src = options.webpOptions.src(str)
-    // 使用sharp进行更改图片后缀
     try{
       const g = await sharp(fileContent).webp().toBuffer()
       if(options.logger){
@@ -114,7 +115,6 @@ const makeMini: makeImage = async (compilation, fileInfo, fileContent, options:a
   });
   if(options.miniOptions && utils.isFunction(options.miniOptions.src)){
     const src = options.miniOptions(str)
-    // 使用sharp进行压缩图片
     try{
       const g = await sharp(fileContent).resize(options.resize).sharpen().toBuffer()
       if(options.logger){

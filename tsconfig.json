@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"] },
     "module": "esnext",
     "target": "es5",
     "esModuleInterop": true,
     "noImplicitAny": true
   },
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts"
