@@ -4,14 +4,20 @@ webpack插件 用于将指定目录下的图片，转换为webp格式和一张�
 本插件提供了，根据用户传入进去的路径，对图片进行压缩mini和webp格式的图片，配合懒加载的组件功能使用
 比如
 ```
-<LazyDiv
+<LazyBackground
   class="test"
-  :src = "require('./assets/bg.jpg')"
-/>
+  :src = "require('./images/logo.jpg')"
+>
+  测试地址11123
+</LazyBackground>
 ```
 上面的组件是另外一个功能，提供了该组件在加载这个图片的时候，首先会加载小图，然后根据判断浏览器是否支持webp从而加载对应的图片。
+组件的详情地址是：
+
+https://www.npmjs.com/package/vue-lazy-background-component
 
 这个插件就是为了解决自动化生成小图和webp而制作的。
+对于这两个插件如有任何疑问 欢迎提一些issue 我的QQ：956826374
 
 ## 使用
 在webpack中引入中使用
@@ -19,7 +25,7 @@ webpack插件 用于将指定目录下的图片，转换为webp格式和一张�
 npm install webpack-plugin-image-transform-webp-and-mini --save-dev
 
 
-const webpackPluginImageTransformWebpAndMini = require('webpackPluginImageTransformWebpAndMini')
+const webpackPluginImageTransformWebpAndMini = require('webpack-plugin-image-transform-webp-and-mini')
 ...
 {
   ...
