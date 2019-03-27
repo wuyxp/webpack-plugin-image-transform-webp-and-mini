@@ -26,7 +26,7 @@ const loadPathDir:loadPathDirType = (pathDir, options = {}, callback = () => {})
       }
       if(stats.isDirectory()){
         // 还是目录继续递归
-        this.loadPathDir(newPathDir, options, callback)
+        loadPathDir(newPathDir, options, callback)
       } else {
         // 如果是文件
         const {exclude, include} = options
@@ -131,10 +131,33 @@ const makeMini: makeImage = async (compilation, fileInfo, fileContent, options:a
         }
       };
     } catch (e) {
-      console.log(e)
       errorLog(`${loaderContext.resourcePath}压缩mini图片失败`)
     }
   } 
+}
+/**
+ * 递归处理目录
+ * @param paths 
+ * @param callback 
+ */
+function deepDir(paths: any, callback: any) {
+  if(utils.isString(paths)){
+    loadPathDir(paths, {}, callback)
+  }
+
+  else if(utils.isObject(paths)){
+    const {dir, include, exclude} = paths
+    loadPathDir(dir, {
+      include,
+      exclude
+    }, callback)
+  }
+
+  else if(utils.isArray(paths)){
+    paths.forEach((p:string) => {
+      deepDir(p, callback)
+    })
+  }
 }
 /**
  * 生成需要格式的图片
@@ -147,23 +170,7 @@ function makeAdapterfun (compilation:compilation, options:any):void {
     makeWebp(compilation, fileInfo, fileContent, options)
     makeMini(compilation, fileInfo, fileContent, options)
   }
-  if(utils.isString(options.paths)){
-    loadPathDir(options.paths, {}, callback)
-  }
-
-  else if(utils.isObject(options.paths)){
-    const {dir, include, exclude} = options.paths
-    loadPathDir(dir, {
-      include,
-      exclude
-    }, callback)
-  }
-
-  else if(utils.isArray(options.paths)){
-    options.paths.forEach((p:string) => {
-      makeAdapterfun(compilation, p)
-    })
-  }
+  deepDir(options.paths, callback)
 }
 
 export default makeAdapterfun

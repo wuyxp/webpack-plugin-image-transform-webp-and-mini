@@ -16,14 +16,14 @@ class webpackPluginImageTransformWebpAndMini {
       miniOptions: {
         src: src => src.replace(/\.(\w+?)(\?[\s\S]+)?$/,'-min.$1$2'),
         resize: {
-          width: 100
+          width: 50
         }
       }
     }
     this.options = Object.assign({}, defaultOptions, options)
   }
   apply(compiler: webpack.Compiler){
-    compiler.hooks.compilation.tap('webpackPluginImageTransformWebpAndMini', compilation => {
+    compiler.hooks.thisCompilation.tap('webpackPluginImageTransformWebpAndMini', compilation => {
       makeAdapter(compilation, this.options)
     })
   }
