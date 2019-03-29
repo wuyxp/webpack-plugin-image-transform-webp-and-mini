@@ -9,6 +9,8 @@ class webpackPluginImageTransformWebpAndMini {
   constructor(options: optionsInterface){
     // 最后需要得到一个paths的文件目录
     const defaultOptions: optionsInterface = {
+      /* vue.config.js 默认 */
+      name: 'img/[name].[hash:8].[ext]',
       logger: false,
       webpOptions: {
         src: src => src.replace(/(?:\.\w+)(\?|$)/, '.webp$1')

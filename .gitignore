@@ -3,8 +3,10 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+webpack-plugin-image-transform-webp-and-mini-*
 
 # Editor directories and files
+.vscode
 .idea
 *.suo
 *.ntvs*

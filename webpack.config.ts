@@ -2,6 +2,7 @@ import path from 'path'
 import webpack from 'webpack';
 import fs from 'fs'
 // FROM: http://jlongster.com/Backend-Apps-with-Webpack--Part-I#p28
+
 const nodeModules = {};
 fs.readdirSync('node_modules')
     .filter(item => ['.bin'].indexOf(item) === -1)  // exclude the .bin folder
