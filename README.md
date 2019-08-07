@@ -24,6 +24,10 @@ https://www.npmjs.com/package/vue-lazy-background-component
 ```
 npm install webpack-plugin-image-transform-webp-and-mini --save-dev
 
+或者
+
+syarn add @belllabs/webpack-plugin-image-transform-webp-and-mini -D
+
 
 const webpackPluginImageTransformWebpAndMini = require('webpack-plugin-image-transform-webp-and-mini')
 ...
